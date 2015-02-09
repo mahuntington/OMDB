@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app='OMDBApp'>
+	<head>
+	</head>
+	<body ng-controller="AppCtrl">
+		<h1>Awesome Movie DB Site</h1>
+		<form ng-submit="search()">
+			<input ng-model="query" type="text"  />
+		</form>
+
+		<ul ng-hide="movies.length == 0">
+			<li ng-repeat="movie in movies" ng-click="showDescription(movie.imdbID)">{{movie.Title}}</li>
+		</ul>
+		<div ng-hide="result == null">
+			{{result.Title}}, {{result.Year}}
+			<p>
+				{{result.Plot}}
+			</p>
+		</div>	
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
